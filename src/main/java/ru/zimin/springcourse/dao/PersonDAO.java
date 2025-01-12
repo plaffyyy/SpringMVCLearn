@@ -29,4 +29,21 @@ public class PersonDAO {
                 .findAny()
                 .orElse(null);
     }
+
+    public void save(Person person) {
+        person.setId(++PEOPLE_CNT);
+        people.add(person);
+    }
+
+    public void update(int id, Person person) {
+        Person personToBeUpdated = show(id);
+
+        personToBeUpdated.setName(person.getName());
+    }
+
+    public void delete(int id) {
+        Person personToBeDeleted = show(id);
+
+        people.remove(personToBeDeleted);
+    }
 }
