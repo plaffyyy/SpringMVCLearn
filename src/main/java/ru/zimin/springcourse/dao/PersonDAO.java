@@ -53,8 +53,8 @@ public class PersonDAO {
 //        people.add(person);
 
         jdbcTemplate.update(
-                "INSERT INTO Person(name, age, email) Values(?, ?, ?)",
-                person.getName(), person.getAge(), person.getEmail()
+                "INSERT INTO Person(name, age, email, address) Values(?, ?, ?, ?)",
+                person.getName(), person.getAge(), person.getEmail(), person.getAddress()
         );
 
     }
@@ -62,8 +62,8 @@ public class PersonDAO {
     public void update(int id, Person person) {
 
         jdbcTemplate.update(
-                "UPDATE Person SET name=?, age=?, email=? WHERE id=?",
-                person.getName(), person.getAge(), person.getEmail(), id
+                "UPDATE Person SET name=?, age=?, email=?, address=? WHERE id=?",
+                person.getName(), person.getAge(), person.getEmail(), person.getAddress(), id
         );
 
     }

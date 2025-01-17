@@ -17,14 +17,19 @@ public class Person {
     @NotEmpty(message = "Email should be nonempty")
     @Email(message = "Not valid email")
     private String email;
+    //Страна, Город, индекс(6 цифр)
+    @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Your address should be: Country, City, Index(6 digits)")
+    private String address;
 
-    public Person() {}
+    public Person() {
+    }
 
-    public Person(int id, String name, int age, String email) {
+    public Person(int id, String name, int age, String email, String address) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.email = email;
+        this.address = address;
     }
 
     public String getName() {
@@ -57,5 +62,13 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
