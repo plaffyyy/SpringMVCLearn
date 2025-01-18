@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<p th:text="${person.getName()} + ', ' + ${person.getAge()}">VALUE</p>
+<p th:text="${person.getName()} + ', ' + ${person.getAge()} + ', admin: ' + ${person.isAdmin()}">VALUE</p>
 <p th:text="${person.getEmail()} + ', from: ' + ${person.getAddress()}">VALUE</p>
 <p th:text="${person.getId()}">VALUE</p>
 

@@ -21,6 +21,8 @@ public class Person {
     @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Your address should be: Country, City, Index(6 digits)")
     private String address;
 
+    private boolean admin;
+
     public Person() {
     }
 
@@ -70,5 +72,13 @@ public class Person {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }

@@ -68,6 +68,13 @@ public class PersonDAO {
 
     }
 
+    public void updateStatus(int id, Person person) {
+        jdbcTemplate.update(
+                "UPDATE Person SET is_admin=? WHERE id=?",
+                person.isAdmin(), id
+        );
+    }
+
     public void delete(int id) {
 
         jdbcTemplate.update(
