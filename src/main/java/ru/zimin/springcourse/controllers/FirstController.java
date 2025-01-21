@@ -14,22 +14,6 @@ public class FirstController {
     public String firstPage() {
         return "first/first";
     }
-    @GetMapping("/hi")
-    public String helloPage(
-            @RequestParam(value = "name", required = false) String name,
-            @RequestParam(value = "surname", required = false) String surname,
-            Model model
-    ) {
-
-//        System.out.println("Hello, " + name + " " + surname);
-        model.addAttribute("message", "Hello, " + name + " " + surname);
-
-        return "first/hello";
-    }
-    @GetMapping("/bye")
-    public String goodByePage() {
-        return "first/goodbye";
-    }
 //    http://localhost:8080/calculator?a=2&b=3&action=addition
     @GetMapping("/calculator")
     public String calculatorPage(
