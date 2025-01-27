@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.zimin.springcourse.models.Book;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
