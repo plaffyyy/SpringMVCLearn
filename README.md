@@ -7,3 +7,4 @@
 
 ## Проект с использованием Hibernate вместо jdbc лежит в ветке hibernate
 
+## Проект с использованием Data JPA и подключение к нему Hibernate лежит в ветке JPAWithDAO
