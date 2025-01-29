@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
 /**
  * @author Neil Alishev
  */
@@ -28,6 +30,9 @@ public class Person {
     @Column(name = "email")
     private String email;
 
+    @OneToMany(mappedBy = "owner")
+    private List<Item> items;
+
     public Person() {
 
     }
@@ -37,6 +42,15 @@ public class Person {
         this.age = age;
         this.email = email;
     }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
 
     public int getId() {
         return id;

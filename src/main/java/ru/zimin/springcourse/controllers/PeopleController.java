@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.zimin.springcourse.models.Person;
+import ru.zimin.springcourse.services.ItemsService;
 import ru.zimin.springcourse.services.PeopleService;
 
 
@@ -18,15 +19,23 @@ import ru.zimin.springcourse.services.PeopleService;
 public class PeopleController {
 
     private final PeopleService peopleService;
+    private final ItemsService itemsService;
     @Autowired
-    public PeopleController(PeopleService peopleService) {
+    public PeopleController(PeopleService peopleService, ItemsService itemsService) {
         this.peopleService = peopleService;
+        this.itemsService = itemsService;
     }
 
 
     @GetMapping()
     public String index(Model model) {
         model.addAttribute("people", peopleService.finalAll());
+
+        itemsService.findByItemName("snus");
+        itemsService.findByOwner(peopleService.finalAll().get(0));
+
+        peopleService.test();
+
         return "people/index";
     }
 
