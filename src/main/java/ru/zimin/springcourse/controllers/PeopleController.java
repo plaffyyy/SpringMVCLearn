@@ -38,14 +38,14 @@ public class PeopleController {
 
     @GetMapping("/new")
     public String newPerson(@ModelAttribute("person") Person person) {
-        return "people/new";
+        return "people/newPerson";
     }
 
     @PostMapping()
     public String create(@ModelAttribute("person") @Valid Person person,
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors())
-            return "people/new";
+            return "people/newPerson";
 
         personDAO.save(person);
         return "redirect:/people";
@@ -54,14 +54,14 @@ public class PeopleController {
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("person", personDAO.show(id));
-        return "people/edit";
+        return "people/editPerson";
     }
 
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult,
                          @PathVariable("id") int id) {
         if (bindingResult.hasErrors())
-            return "people/edit";
+            return "people/editPerson";
 
         personDAO.update(id, person);
         return "redirect:/people";
