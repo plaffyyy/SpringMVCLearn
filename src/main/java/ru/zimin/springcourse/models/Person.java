@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,6 +31,15 @@ public class Person {
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "date_of_birth")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date dateOfBirth;
+
+    @Column(name = "create_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createAt;
 
     @OneToMany(mappedBy = "owner")
     private List<Item> items;
@@ -82,6 +93,22 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
     }
 
     @Override

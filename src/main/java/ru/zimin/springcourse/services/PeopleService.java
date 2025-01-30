@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.zimin.springcourse.models.Person;
 import ru.zimin.springcourse.repositories.PeopleRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +31,8 @@ public class PeopleService {
 
     @Transactional
     public void save(Person person) {
+        person.setCreateAt(new Date());
+
         peopleRepository.save(person);
     }
 
@@ -44,10 +47,6 @@ public class PeopleService {
     @Transactional
     public void delete(int id) {
         peopleRepository.deleteById(id);
-    }
-
-    public void test() {
-        System.out.println("asdadsadasdasdasdsadasdasdasdasdas");
     }
 
 }
