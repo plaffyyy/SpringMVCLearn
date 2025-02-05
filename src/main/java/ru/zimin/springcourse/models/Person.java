@@ -42,7 +42,7 @@ public class Person {
     private Date createAt;
 
     @OneToMany(mappedBy = "owner")
-    private List<Item> items;
+    private List<Book> books;
 
     public Person() {
 
@@ -54,14 +54,13 @@ public class Person {
         this.email = email;
     }
 
-    public List<Item> getItems() {
-        return items;
+    public List<Book> getBooks() {
+        return books;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
-
 
     public int getId() {
         return id;

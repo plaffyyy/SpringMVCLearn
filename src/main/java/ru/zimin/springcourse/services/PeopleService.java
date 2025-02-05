@@ -8,7 +8,6 @@ import ru.zimin.springcourse.repositories.PeopleRepository;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -21,11 +20,11 @@ public class PeopleService {
         this.peopleRepository = peopleRepository;
     }
 
-    public List<Person> finalAll() {
+    public List<Person> findAll() {
         return peopleRepository.findAll();
     }
 
-    public Person findOne(int id) {
+    public Person findOne(Integer id) {
         return peopleRepository.findById(id).orElse(null);
     }
 

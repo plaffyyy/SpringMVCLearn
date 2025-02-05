@@ -8,7 +8,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.zimin.springcourse.dao.PersonDAO;
 import ru.zimin.springcourse.models.Person;
-import ru.zimin.springcourse.services.ItemsService;
 import ru.zimin.springcourse.services.PeopleService;
 
 
@@ -20,21 +19,17 @@ import ru.zimin.springcourse.services.PeopleService;
 public class PeopleController {
 
     private final PeopleService peopleService;
-    private final ItemsService itemsService;
     private final PersonDAO personDAO;
     @Autowired
-    public PeopleController(PeopleService peopleService, ItemsService itemsService, PersonDAO personDAO) {
+    public PeopleController(PeopleService peopleService, PersonDAO personDAO) {
         this.peopleService = peopleService;
-        this.itemsService = itemsService;
         this.personDAO = personDAO;
     }
 
 
     @GetMapping()
     public String index(Model model) {
-        model.addAttribute("people", peopleService.finalAll());
-//        personDAO.testNPlus1();
-        personDAO.fixNPlus1();
+        model.addAttribute("people", peopleService.findAll());
         return "people/index";
     }
 
